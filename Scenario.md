@@ -26,15 +26,15 @@
 
 ---
 
-## Known Indicators of Compromise
+## Known IOCs (Indicators of Compromise)
 
 | Type | Value | Context |
 |------|-------|---------|
 | IP Address | `185.220.101.42` | Attacker's VPN source IP |
 | Domain | `techcorp-login.malicioussite.com` | Phishing page |
-| Email Address | `recovery-techcorp@protonmail.com` | External email used for forwarded password reset |
-| Email Subject | `Action Required: Verify Your Account` | Phishing email subject |
-| File Hash | `SHA256: a1b2c3d4e5f6...deadbeef` | Simulated phishing kit hash |
+| Email | `recovery-techcorp@protonmail.com` | Attacker's email used for forwarded resets |
+| Email Subject | `"Action Required: Verify Your Account"` | Phishing email subject |
+| File Hash (phishing page kit) | `SHA256: a1b2c3d4e5f6...deadbeef` | Phishing kit hash (from URL scan) |
 
 
 
