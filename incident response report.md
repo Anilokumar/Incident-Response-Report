@@ -60,7 +60,7 @@ The identified indicators should be used to determine whether the phishing campa
 
 A broader search across VPN, email, proxy, DNS, and authentication logs would help determine whether Sarah Chen was the only targeted or compromised employee.
 
-## 4. Attack Analysis — MITRE ATT&CK Mapping
+## 4. Attack Analysis - MITRE ATT&CK Mapping
 
 The observed attacker activity was mapped to the MITRE ATT&CK framework to identify the techniques used throughout the incident.
 
