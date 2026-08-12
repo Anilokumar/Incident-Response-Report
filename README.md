@@ -82,3 +82,32 @@ incident-response-report/
 ├── README.md
 ├── scenario.md
 └── incident-response-report.md
+...
+
+### File Descriptions
+
+- **`README.md`** — Provides an overview of the project, key findings, investigation process, and skills demonstrated.
+- **`scenario.md`** — Contains the simulated incident scenario, initial timeline, and known Indicators of Compromise (IOCs).
+- **`incident-response-report.md`** — Contains the complete SOC investigation, including timeline analysis, IOC analysis, MITRE ATT&CK mapping, containment, eradication, and security recommendations.
+
+---
+
+## Key Takeaways
+
+This project strengthened my understanding of how SOC analysts investigate phishing-led account compromises by correlating authentication, VPN, email, and file-access activity.
+
+The investigation reinforced the importance of distinguishing confirmed evidence from assumptions, analyzing multiple log sources, identifying indicators of compromise, and recommending appropriate containment and remediation actions.
+
+---
+
+## Project Note
+
+This project is based on a fictional organization and simulated security incident. The investigation follows realistic SOC and incident-response practices.
+
+---
+
+## Author
+
+**Anil Kumar Ramesh**
+
+Cybersecurity student focused on SOC operations, incident response, network security, and threat analysis.
