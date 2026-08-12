@@ -124,4 +124,32 @@ The immediate threat was contained when Sarah's VPN access was disabled, her pas
 
 Using the unauthorized VPN session, the attacker browsed internal HR and Finance directories and subsequently downloaded 47 files from the HR compensation directory. The activity was eventually detected through an anomalous VPN login alert and contained by the incident-response team.
 
+## 6. Lessons Learned and Recommendations
 
+The incident demonstrated that a successful phishing attack against a single employee account could provide an attacker with access to multiple corporate resources. Based on the investigation, the following security improvements are recommended.
+
+| Area | Recommendation | Reason |
+|---|---|---|
+| Authentication | Enforce multi-factor authentication (MFA) for VPN, email, and other critical corporate services. | Stolen passwords alone should not be sufficient to access corporate resources. |
+| Email Security | Strengthen email filtering and phishing detection for suspicious domains, links, and impersonation attempts. | The initial compromise began with a phishing email containing a fraudulent login link. |
+| Web Security | Block known malicious domains and improve DNS/web filtering. | This can prevent users from accessing identified phishing infrastructure. |
+| VPN Monitoring | Generate alerts for unusual geolocation, unknown devices, and abnormal VPN login behaviour. | The anomalous VPN login was the primary detection point in this incident. |
+| Data Loss Prevention | Implement DLP controls and monitoring for unusual downloads of sensitive HR and Finance information. | The attacker successfully downloaded 47 sensitive HR files before the incident was detected. |
+| Access Control | Review least-privilege permissions for sensitive HR and Finance file shares. | Users should only have access to information required for their job responsibilities. |
+| Security Awareness | Conduct regular phishing-awareness training and simulated phishing exercises. | Employees should be able to recognize suspicious login pages, urgent requests, and unusual domains. |
+| Incident Response | Develop and regularly test procedures for account compromise, phishing, and unauthorized remote access. | Clear procedures can reduce the time between detection, investigation, and containment. |
+| Threat Hunting | Search historical VPN, authentication, email, DNS, proxy, and file-access logs using identified IOCs. | This helps determine whether additional users or systems were targeted or compromised. |
+
+### Lessons Learned
+
+The incident highlights the importance of layered security controls. Preventing phishing alone is not sufficient; organizations should combine strong authentication, access controls, monitoring, user awareness, and incident-response procedures.
+
+The anomalous VPN login alert successfully identified suspicious activity, but sensitive HR files had already been accessed and downloaded before the alert was generated. Earlier detection of credential misuse and abnormal file-access behaviour could have reduced the impact of the incident.
+
+## 7. Conclusion
+
+The investigation determined that a phishing attack resulted in the compromise of Sarah Chen's corporate credentials and subsequent unauthorized access to TechCorp's environment. The attacker used the compromised account to establish a VPN session, access corporate email, browse sensitive HR and Finance resources, and download 47 files totaling 12 MB from the HR compensation directory.
+
+The incident was detected through anomalous VPN activity and contained by disabling VPN access, forcing a password reset, and terminating the unauthorized session.
+
+This investigation highlights the importance of strong authentication, phishing protection, continuous monitoring, least-privilege access, and effective incident-response procedures. The identified IOCs and MITRE ATT&CK mappings can also be used to support further threat hunting and detection activities.
