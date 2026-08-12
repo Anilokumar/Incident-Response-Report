@@ -60,3 +60,26 @@ The identified indicators should be used to determine whether the phishing campa
 
 A broader search across VPN, email, proxy, DNS, and authentication logs would help determine whether Sarah Chen was the only targeted or compromised employee.
 
+## 4. Attack Analysis — MITRE ATT&CK Mapping
+
+The observed attacker activity was mapped to the MITRE ATT&CK framework to identify the techniques used throughout the incident.
+
+| Attack Phase                   | Technique                              | MITRE ATT&CK ID | Analysis                                                                                                                                                                 |
+| ------------------------------ | -------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Initial Access**             | Phishing: Spearphishing Link           | `T1566.002`     | The attacker sent Sarah a phishing email containing a link to a fraudulent corporate login page designed to steal her credentials.                                       |
+| **Credential / Account Abuse** | Valid Accounts                         | `T1078`         | After obtaining Sarah's credentials, the attacker used the legitimate account credentials to authenticate to the corporate VPN.                                          |
+| **Email Access**               | Email Collection                       | `T1114`         | The attacker accessed Sarah's corporate mailbox and interacted with an HR portal password-reset email.                                                                   |
+| **Remote Access**              | Remote Services                        | `T1021`         | The compromised account was used to establish remote access to the corporate environment through the VPN.                                                                |
+| **Discovery**                  | File and Directory Discovery           | `T1083`         | After obtaining VPN access, the attacker browsed internal HR and Finance file shares to identify potentially valuable information.                                       |
+| **Collection**                 | Data from Local System                 | `T1005`         | The attacker collected 47 files totaling 12 MB from the HR compensation directory using Sarah's compromised account.                                                     |
+| **Exfiltration**               | Exfiltration Over Alternative Protocol | `T1048`         | The incident scenario indicates that sensitive HR data was downloaded through the unauthorized remote session, representing data removal from the corporate environment. |
+
+### Attack Chain Analysis
+
+The attack began with a phishing email containing a link to a fraudulent login page. Sarah entered her corporate credentials into the phishing site, allowing the attacker to obtain valid account credentials.
+
+The attacker then used Sarah's credentials to establish unauthorized VPN access and gain entry to internal corporate resources. After accessing Sarah's email account, the attacker attempted to extend access by forwarding an HR portal password-reset message to an external email address.
+
+Using the unauthorized VPN session, the attacker browsed internal HR and Finance directories and subsequently downloaded 47 files from the HR compensation directory. The activity was eventually detected through an anomalous VPN login alert and contained by the incident-response team.
+
+
