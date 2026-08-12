@@ -82,7 +82,7 @@ incident-response-report/
 ├── README.md
 ├── scenario.md
 └── incident-response-report.md
-...
+```
 
 ### File Descriptions
 
@@ -96,7 +96,7 @@ incident-response-report/
 
 This project strengthened my understanding of how SOC analysts investigate phishing-led account compromises by correlating authentication, VPN, email, and file-access activity.
 
-The investigation reinforced the importance of distinguishing confirmed evidence from assumptions, analyzing multiple log sources, identifying indicators of compromise, and recommending appropriate containment and remediation actions.
+The investigation reinforced the importance of distinguishing confirmed evidence from assumptions, analyzing multiple log sources, identifying Indicators of Compromise, and recommending appropriate containment and remediation actions.
 
 ---
 
