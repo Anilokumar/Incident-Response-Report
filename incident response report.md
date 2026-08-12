@@ -80,6 +80,48 @@ The attack began with a phishing email containing a link to a fraudulent login p
 
 The attacker then used Sarah's credentials to establish unauthorized VPN access and gain entry to internal corporate resources. After accessing Sarah's email account, the attacker attempted to extend access by forwarding an HR portal password-reset message to an external email address.
 
+## 5. Containment and Eradication
+
+### 5.1 Containment Actions
+
+Once the unauthorized activity was confirmed, immediate containment actions were taken to prevent further access to TechCorp's environment.
+
+| Action                                                   | Purpose                                                                            | Status      |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------- |
+| Disabled Sarah's VPN access                              | Prevent further remote access using the compromised account                        | Completed   |
+| Forced a password reset                                  | Invalidate the stolen corporate password                                           | Completed   |
+| Terminated the active VPN session                        | Remove the attacker's immediate access to internal resources                       | Completed   |
+| Block attacker IP `185.220.101.42`                       | Prevent additional connection attempts from the identified source IP               | Recommended |
+| Block `techcorp-login.malicioussite.com`                 | Prevent other employees from accessing the identified phishing site                | Recommended |
+| Block and investigate `recovery-techcorp@protonmail.com` | Prevent further interaction with the external address associated with the incident | Recommended |
+
+### 5.2 Eradication Actions
+
+Following containment, additional actions should be performed to remove any remaining attacker access and determine whether the compromise extended beyond Sarah's account.
+
+1. **Revoke active sessions and authentication tokens** associated with Sarah's account to ensure previously authenticated sessions cannot continue to be used.
+
+2. **Review Sarah's email account** for malicious forwarding rules, inbox rules, delegated access, or other unauthorized configuration changes.
+
+3. **Review HR portal activity** to determine whether the attacker successfully reset credentials or gained access to Sarah's HR account.
+
+4. **Search VPN and authentication logs** for additional activity associated with `185.220.101.42` and Sarah's account.
+
+5. **Search email gateway logs** to identify whether the phishing message was delivered to other TechCorp employees.
+
+6. **Search proxy and DNS logs** for connections to `techcorp-login.malicioussite.com` to identify additional users who may have visited the phishing page.
+
+7. **Review file server audit logs** to determine exactly which files and directories were accessed or downloaded during the unauthorized session.
+
+8. **Reset any additional credentials** found to have been exposed or compromised during the investigation.
+
+9. **Monitor Sarah's account** for additional abnormal authentication attempts following remediation.
+
+### Containment Status
+
+The immediate threat was contained when Sarah's VPN access was disabled, her password was reset, and the unauthorized VPN session was terminated at 10:45 AM. However, further investigation is required to confirm that no additional accounts, sessions, or systems were compromised.
+
+
 Using the unauthorized VPN session, the attacker browsed internal HR and Finance directories and subsequently downloaded 47 files from the HR compensation directory. The activity was eventually detected through an anomalous VPN login alert and contained by the incident-response team.
 
 
