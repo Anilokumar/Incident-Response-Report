@@ -42,3 +42,21 @@ The first confirmed unauthorized VPN session was established at **9:32 AM** and 
 
 The incident was detected at **10:30 AM** following an anomalous VPN login alert. After confirming that Sarah was not responsible for the suspicious connection, containment actions were initiated at **10:40 AM**, approximately **10 minutes after detection**.
 
+## 3. Indicators of Compromise (IOCs)
+
+The following indicators were identified during the investigation and can be used to support threat hunting, detection, and blocking activities across the environment.
+
+| IOC Type          | Indicator                              | Context                                                                                      | Recommended Action                                                                                                   |
+| ----------------- | -------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **IP Address**    | `185.220.101.42`                       | Source IP associated with the unauthorized VPN login to Sarah's account.                     | Search authentication and VPN logs for additional connections from the IP and block where appropriate.               |
+| **Domain**        | `techcorp-login.malicioussite.com`     | Fraudulent login domain used to capture Sarah's corporate credentials.                       | Block the domain through web filtering and search proxy/DNS logs for other users who accessed it.                    |
+| **Email Address** | `recovery-techcorp@protonmail.com`     | External email address used to receive the forwarded HR portal password-reset message.       | Search email logs for communication or forwarding activity involving the address and block where appropriate.        |
+| **Email Subject** | `Action Required: Verify Your Account` | Subject line associated with the phishing campaign targeting Sarah.                          | Search email gateway logs for other employees who received messages with the same or similar subject.                |
+| **File Hash**     | `SHA256: a1b2c3d4e5f6...deadbeef`      | Simulated SHA-256 hash associated with the phishing kit referenced in the incident scenario. | Search available security telemetry for matches and add the hash to relevant detection/block lists where applicable. |
+
+### IOC Analysis
+
+The identified indicators should be used to determine whether the phishing campaign affected additional employees or systems. Particular attention should be given to authentication activity involving `185.220.101.42` and web or DNS activity involving `techcorp-login.malicioussite.com`.
+
+A broader search across VPN, email, proxy, DNS, and authentication logs would help determine whether Sarah Chen was the only targeted or compromised employee.
+
